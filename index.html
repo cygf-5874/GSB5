@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>幻兽群岛 · 精灵大师之旅</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="game-root">
+  <div id="world-wrap">
+    <canvas id="world-canvas"></canvas>
+    <div id="zone-tip"></div>
+    <div id="toast-layer"></div>
+  </div>
+
+  <div id="hud-trainer" class="hud-panel">
+    <div class="trainer-row">
+      <div class="trainer-avatar">🧑‍🎤</div>
+      <div class="trainer-info">
+        <div class="trainer-name">训练师 <span id="tr-level">Lv.1</span></div>
+        <div class="bar hp-bar"><div class="bar-fill" id="hp-fill"></div><span class="bar-text" id="hp-text"></span></div>
+        <div class="bar exp-bar"><div class="bar-fill" id="exp-fill"></div><span class="bar-text" id="exp-text"></span></div>
+      </div>
+    </div>
+    <div class="power-row">战力 <b id="power-text">0</b> · <span id="el-text">🌊</span> · 💰<span id="gold-text">0</span> · 💎<span id="gem-text">0</span></div>
+  </div>
+
+  <div id="hud-minimap" class="hud-panel">
+    <canvas id="minimap-canvas" width="168" height="120"></canvas>
+    <div id="map-name">初心岛</div>
+  </div>
+
+  <div id="hud-party">
+    <div id="party-slots"></div>
+    <div id="follow-cd"></div>
+  </div>
+
+  <div id="hud-actions">
+    <button class="act-btn" data-act="bag"><span>🎒</span>背包</button>
+    <button class="act-btn" data-act="team"><span>🐾</span>队伍</button>
+    <button class="act-btn" data-act="egg"><span>🥚</span>孵蛋</button>
+    <button class="act-btn" data-act="map"><span>🗺️</span>地图</button>
+    <button class="act-btn act-main" data-act="help"><span>❔</span>帮助</button>
+  </div>
+
+  <div id="modal-layer" class="hidden"></div>
+</div>
+<script src="js/data.js"></script>
+<script src="js/state.js"></script>
+<script src="js/world.js"></script>
+<script src="js/battle.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
