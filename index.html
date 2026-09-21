@@ -1,0 +1,93 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>幻兽群岛 · Monster Isles</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="game">
+  <canvas id="world"></canvas>
+
+  <!-- 左上角：训练师状态 -->
+  <div id="hud-trainer" class="hud-panel">
+    <div class="trainer-head">
+      <canvas id="avatar" width="44" height="44"></canvas>
+      <div class="trainer-info">
+        <div class="trainer-name">训练师 <b>Lv.<span id="t-lv">1</span></b></div>
+        <div class="bar"><div id="t-exp-fill" class="fill exp"></div><span id="t-exp-text">0/100</span></div>
+        <div class="bar hp"><div id="t-hp-fill" class="fill hp"></div><span id="t-hp-text">100/100</span></div>
+      </div>
+    </div>
+    <div class="trainer-stats">
+      <span>⚔ <span id="t-atk">0</span></span>
+      <span>✦ <span id="t-gold">0</span></span>
+      <span>💎 <span id="t-gem">0</span></span>
+      <span>👣 <span id="t-steps">0</span></span>
+    </div>
+  </div>
+
+  <!-- 右上角：小地图 -->
+  <div id="hud-minimap" class="hud-panel">
+    <div class="mm-title" id="map-name">初心岛</div>
+    <canvas id="minimap" width="176" height="112"></canvas>
+    <div class="mm-legend"><i class="lg-pl"></i>幻兽 <i class="lg-rp"></i>资源 <i class="lg-np"></i>NPC <i class="lg-pp"></i>传送</div>
+  </div>
+
+  <!-- 底部：幻兽队伍栏 -->
+  <div id="hud-party">
+    <div class="party-label">主战位（点击切换跟随，切换有冷却）</div>
+    <div id="party-slots"></div>
+    <div class="party-label sub">辅战位（提供资质加成，点击管理）</div>
+    <div id="support-slots"></div>
+  </div>
+
+  <!-- 右下角：操作按钮 -->
+  <div id="hud-actions">
+    <button class="act-btn" data-act="capture"><span>🎯</span>捕捉</button>
+    <button class="act-btn" data-act="battle"><span>⚔️</span>战斗</button>
+    <button class="act-btn" data-act="bag"><span>🎒</span>背包</button>
+    <button class="act-btn" data-act="map"><span>🗺️</span>地图</button>
+    <button class="act-btn" data-act="help"><span>❓</span>帮助</button>
+  </div>
+
+  <div id="toast-layer"></div>
+
+  <!-- 通用弹窗 -->
+  <div id="modal" class="modal-hidden"></div>
+
+  <!-- 战斗界面 -->
+  <div id="battle-screen" class="screen-hidden">
+    <div class="battle-stage">
+      <div class="side enemy-side">
+        <div class="cre-name"><span id="e-name"></span><span id="e-q"></span> Lv.<span id="e-lv"></span></div>
+        <div class="cre-hp"><div id="e-hp-fill"></div><span id="e-hp-text"></span></div>
+        <canvas id="e-canvas" width="120" height="120"></canvas>
+      </div>
+      <div class="vs">VS</div>
+      <div class="side ally-side">
+        <canvas id="a-canvas" width="120" height="120"></canvas>
+        <div class="cre-name"><span id="a-name"></span><span id="a-q"></span> Lv.<span id="a-lv"></span></div>
+        <div class="cre-hp"><div id="a-hp-fill"></div><span id="a-hp-text"></span></div>
+      </div>
+    </div>
+    <div id="battle-log"></div>
+    <div id="battle-menu">
+      <button class="bm-btn" data-bm="skill">技能</button>
+      <button class="bm-btn" data-bm="switch">换兽</button>
+      <button class="bm-btn" data-bm="capture">捕捉</button>
+      <button class="bm-btn" data-bm="flee">逃跑</button>
+    </div>
+  </div>
+</div>
+
+<script src="js/data.js"></script>
+<script src="js/sprite.js"></script>
+<script src="js/state.js"></script>
+<script src="js/world.js"></script>
+<script src="js/battle.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
